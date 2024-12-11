@@ -1,0 +1,29 @@
+syntax = "proto3";
+
+package catalog;
+
+service ProductService {
+  // Busca um produto pelo ID
+  rpc GetProductById (ProductRequest) returns (ProductResponse);
+
+  // Lista todos os produtos
+  rpc ListProducts (EmptyRequest) returns (ProductListResponse);
+}
+
+message ProductRequest {
+  string id = 1; // ID do produto a ser buscado
+}
+
+message ProductResponse {
+  string id = 1;
+  string name = 2;
+  string description = 3;
+  double price = 4;
+  int32 stock = 5;
+}
+
+message EmptyRequest {}
+
+message ProductListResponse {
+  repeated ProductResponse products = 1; // Lista de produtos
+}

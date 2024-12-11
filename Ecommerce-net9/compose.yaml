@@ -1,0 +1,6 @@
+﻿services:
+  ecommerce-net9:
+    image: ecommerce-net9
+    build:
+      context: .
+      dockerfile: Ecommerce-net9/Dockerfile
