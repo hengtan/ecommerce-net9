@@ -1,0 +1,83 @@
+version: '3.9'
+services:
+  elasticsearch:
+    image: docker.elastic.co/elasticsearch/elasticsearch:8.10.2
+    container_name: elasticsearchEcommerce
+    environment:
+      - discovery.type=single-node
+      - xpack.security.http.ssl.enabled=false # Desativa o SSL
+    ports:
+      - "9200:9200" # Porta padrão do Elasticsearch
+    networks:
+      - elastic
+
+  kibana:
+    image: docker.elastic.co/kibana/kibana:8.10.2
+    container_name: kibanaEcommerce
+    environment:
+      ELASTICSEARCH_HOSTS: "http://elasticsearch:9200"
+      ELASTICSEARCH_USERNAME: "kibana_user"
+      ELASTICSEARCH_PASSWORD: "senha123"
+      ELASTICSEARCH_SSL_VERIFICATIONMODE: "none" # Desabilita a verificação do certificado SSL
+    ports:
+      - "5601:5601"
+    networks:
+      - elastic
+
+  sqlserver:
+    image: mcr.microsoft.com/azure-sql-edge:latest
+    container_name: sqlserverEcommerce
+    environment:
+      ACCEPT_EULA: "Y"
+      SA_PASSWORD: "YourPassword123"
+    ports:
+      - "1433:1433"
+    networks:
+      - elastic
+
+  zookeeper:
+    image: confluentinc/cp-zookeeper:latest
+    container_name: zookeeperEcommerce
+    environment:
+      ZOOKEEPER_CLIENT_PORT: 2181
+      ZOOKEEPER_TICK_TIME: 2000
+    ports:
+      - "2181:2181"
+    networks:
+      - elastic
+
+  kafka:
+    image: confluentinc/cp-kafka:latest
+    container_name: kafkaEcommerce
+    depends_on:
+      - zookeeper
+    environment:
+      KAFKA_BROKER_ID: 1
+      KAFKA_ZOOKEEPER_CONNECT: zookeeper:2181
+      KAFKA_ADVERTISED_LISTENERS: PLAINTEXT://localhost:9092
+      KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: 1
+    ports:
+      - "9092:9092"
+    volumes:
+      - kafka-data:/var/lib/kafka
+    networks:
+      - elastic
+
+  redis:
+    image: redis:latest
+    container_name: redisEcommerce
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis-data:/data
+    networks:
+      - elastic
+
+volumes:
+  sqlserver-data:
+  kafka-data:
+  redis-data:
+
+networks:
+  elastic:
+    driver: bridge
