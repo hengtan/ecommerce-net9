@@ -8,11 +8,12 @@
     ".NETCoreApp,Version=v9.0": {
       "LoggingService.API/1.0.0": {
         "dependencies": {
-          "Confluent.Kafka": "1.9.3",
+          "Confluent.Kafka": "2.6.1",
           "Grpc.AspNetCore": "2.52.0",
           "Grpc.Tools": "2.52.0",
           "Microsoft.AspNetCore.OpenApi": "9.0.0",
           "Microsoft.Extensions.Hosting": "9.0.0",
+          "Newtonsoft.Json": "13.0.3",
           "Serilog": "2.12.0",
           "Serilog.AspNetCore": "7.0.0",
           "Serilog.Sinks.Elasticsearch": "8.4.1",
@@ -22,15 +23,14 @@
           "LoggingService.API.dll": {}
         }
       },
-      "Confluent.Kafka/1.9.3": {
+      "Confluent.Kafka/2.6.1": {
         "dependencies": {
-          "System.Memory": "4.5.3",
-          "librdkafka.redist": "1.9.2"
+          "librdkafka.redist": "2.6.1"
         },
         "runtime": {
-          "lib/net6.0/Confluent.Kafka.dll": {
-            "assemblyVersion": "1.9.3.0",
-            "fileVersion": "1.9.3.0"
+          "lib/net8.0/Confluent.Kafka.dll": {
+            "assemblyVersion": "2.6.1.0",
+            "fileVersion": "2.6.1.0"
           }
         }
       },
@@ -132,7 +132,7 @@
         }
       },
       "Grpc.Tools/2.52.0": {},
-      "librdkafka.redist/1.9.2": {
+      "librdkafka.redist/2.6.1": {
         "runtimeTargets": {
           "runtimes/linux-arm64/native/librdkafka.so": {
             "rid": "linux-arm64",
@@ -144,12 +144,7 @@
             "assetType": "native",
             "fileVersion": "0.0.0.0"
           },
-          "runtimes/linux-x64/native/centos6-librdkafka.so": {
-            "rid": "linux-x64",
-            "assetType": "native",
-            "fileVersion": "0.0.0.0"
-          },
-          "runtimes/linux-x64/native/centos7-librdkafka.so": {
+          "runtimes/linux-x64/native/centos8-librdkafka.so": {
             "rid": "linux-x64",
             "assetType": "native",
             "fileVersion": "0.0.0.0"
@@ -169,7 +164,7 @@
             "assetType": "native",
             "fileVersion": "0.0.0.0"
           },
-          "runtimes/win-x64/native/libcrypto-1_1-x64.dll": {
+          "runtimes/win-x64/native/libcrypto-3-x64.dll": {
             "rid": "win-x64",
             "assetType": "native",
             "fileVersion": "0.0.0.0"
@@ -189,7 +184,7 @@
             "assetType": "native",
             "fileVersion": "0.0.0.0"
           },
-          "runtimes/win-x64/native/libssl-1_1-x64.dll": {
+          "runtimes/win-x64/native/libssl-3-x64.dll": {
             "rid": "win-x64",
             "assetType": "native",
             "fileVersion": "0.0.0.0"
@@ -214,7 +209,7 @@
             "assetType": "native",
             "fileVersion": "0.0.0.0"
           },
-          "runtimes/win-x86/native/libcrypto-1_1.dll": {
+          "runtimes/win-x86/native/libcrypto-3.dll": {
             "rid": "win-x86",
             "assetType": "native",
             "fileVersion": "0.0.0.0"
@@ -234,7 +229,7 @@
             "assetType": "native",
             "fileVersion": "0.0.0.0"
           },
-          "runtimes/win-x86/native/libssl-1_1.dll": {
+          "runtimes/win-x86/native/libssl-3.dll": {
             "rid": "win-x86",
             "assetType": "native",
             "fileVersion": "0.0.0.0"
@@ -493,6 +488,14 @@
           "lib/netstandard2.0/Microsoft.OpenApi.dll": {
             "assemblyVersion": "1.6.17.0",
             "fileVersion": "1.6.17.0"
+          }
+        }
+      },
+      "Newtonsoft.Json/13.0.3": {
+        "runtime": {
+          "lib/net6.0/Newtonsoft.Json.dll": {
+            "assemblyVersion": "13.0.0.0",
+            "fileVersion": "13.0.3.27908"
           }
         }
       },
@@ -792,12 +795,12 @@
       "serviceable": false,
       "sha512": ""
     },
-    "Confluent.Kafka/1.9.3": {
+    "Confluent.Kafka/2.6.1": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-xdol/eagNz6hdldqcm7ctjRuRGENJyctFyNmNAX+lgqJ7xXIVQa9c0L9jPaYWeMYg0gSMihtaH950HzDPKnmbg==",
-      "path": "confluent.kafka/1.9.3",
-      "hashPath": "confluent.kafka.1.9.3.nupkg.sha512"
+      "sha512": "sha512-DCap4xzbUzItoFVBCmBbng6q4XbaxfqLgR/b56b67L9S0iUTIwrSAvk3MPegyQNn56+1C/m3ytwy1YU+nAuqDA==",
+      "path": "confluent.kafka/2.6.1",
+      "hashPath": "confluent.kafka.2.6.1.nupkg.sha512"
     },
     "Elasticsearch.Net/7.8.1": {
       "type": "package",
@@ -869,12 +872,12 @@
       "path": "grpc.tools/2.52.0",
       "hashPath": "grpc.tools.2.52.0.nupkg.sha512"
     },
-    "librdkafka.redist/1.9.2": {
+    "librdkafka.redist/2.6.1": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-ljLtyamiEq7Ky36LAv8gAz69YfpLBw2P/y1eDuqwAm9RiDINtWrkg/hqIBTK2Gc7ydJaKlySa1BxMG7RHVD26A==",
-      "path": "librdkafka.redist/1.9.2",
-      "hashPath": "librdkafka.redist.1.9.2.nupkg.sha512"
+      "sha512": "sha512-RcpH/eqmfp08RmfeQdHeJEz0OaAcYWJo8EqQiU4ohDrBygIXbWhCTksUFkhYGqap/5Ycm+HC9RVSlwetFo9SlA==",
+      "path": "librdkafka.redist/2.6.1",
+      "hashPath": "librdkafka.redist.2.6.1.nupkg.sha512"
     },
     "Microsoft.AspNetCore.OpenApi/9.0.0": {
       "type": "package",
@@ -1113,6 +1116,13 @@
       "sha512": "sha512-Le+kehlmrlQfuDFUt1zZ2dVwrhFQtKREdKBo+rexOwaCoYP0/qpgT9tLxCsZjsgR5Itk1UKPcbgO+FyaNid/bA==",
       "path": "microsoft.openapi/1.6.17",
       "hashPath": "microsoft.openapi.1.6.17.nupkg.sha512"
+    },
+    "Newtonsoft.Json/13.0.3": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-HrC5BXdl00IP9zeV+0Z848QWPAoCr9P3bDEZguI+gkLcBKAOxix/tLEAAHC+UvDNPv4a2d18lOReHMOagPa+zQ==",
+      "path": "newtonsoft.json/13.0.3",
+      "hashPath": "newtonsoft.json.13.0.3.nupkg.sha512"
     },
     "Serilog/2.12.0": {
       "type": "package",
