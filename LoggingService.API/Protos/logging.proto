@@ -1,0 +1,18 @@
+syntax = "proto3";
+
+option csharp_namespace = "LoggingService.Grpc";
+
+service LogService {
+  rpc SendLog (LogRequest) returns (LogResponse);
+}
+
+message LogRequest {
+  string service_name = 1; // Nome do serviço enviando o log
+  string log_level = 2;    // Nível do log: Info, Debug, Error
+  string message = 3;      // Mensagem do log
+  string timestamp = 4;    // Data e hora do log
+}
+
+message LogResponse {
+  string status = 1;       // Status da operação
+}
